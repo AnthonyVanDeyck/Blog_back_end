@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        @vite('resources/css/app.css')
         <title>ブログ</title>
     </head>
     <body>
-        <div style="text-align: center">
+        <div class="flex flex-col justify-center items-center">
             <H1>Connexion</H1>
-            <form class="w-full max-w-sm">
+            <form class="w-full max-w-sm ">
                 <div class="md:flex md:items-center mb-6">
                   <div class="md:w-1/3">
                     <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
