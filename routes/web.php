@@ -23,4 +23,5 @@ route::get('inscription', function()
     return view('inscription');
 });
 
-route::post('inscription',[UserController::class, 'inscription'])->name('inscription');
+route::post('inscription.post',[UserController::class, 'store']);
+route::post('aceuille', [UserController::class, '']);

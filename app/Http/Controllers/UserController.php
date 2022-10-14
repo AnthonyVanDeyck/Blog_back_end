@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+
 
 class UserController extends Controller
 {
@@ -12,6 +18,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
@@ -35,7 +42,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $users = new User;
+        $users->name = request('pseudo');
+        $users->email = request('email');
+        $users->password = Hash::make(request('mdp'));
+
+        $users-> save();
+        //dd($request);
+        return view ('/inscription');
     }
 
     /**
@@ -47,6 +62,11 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
+    }
+
+    public function login()
+    {
+       $user = Auth::user();
     }
 
     /**
