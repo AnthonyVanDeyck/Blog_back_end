@@ -23,5 +23,11 @@ route::get('inscription', function()
     return view('inscription');
 });
 
+route::get('acuille', function()
+{
+    return view ('acuille');
+});
+
 route::post('inscription.post',[UserController::class, 'store']);
-route::post('aceuille', [UserController::class, '']);
+route::post('login.post', [UserController::class, 'login']);
+// route::post('aceuille', [UserController::class, '']);

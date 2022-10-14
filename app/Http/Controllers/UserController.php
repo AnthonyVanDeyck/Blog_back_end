@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Hash;
+use Session;
 use App\Models\User;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 
 class UserController extends Controller
@@ -64,9 +62,18 @@ class UserController extends Controller
         //
     }
 
-    public function login()
+    public function login(Request $request)
     {
-       $user = Auth::user();
+       //
+       $request->validate([
+        'name'=> 'required',
+        'password'=> 'required',
+       ]);
+       $connexion = $request->only('name', 'password');
+        if (Auth::attempt($connexion)) {
+            return redirect()->intended('acuille')
+                        ->withSuccess('Signed in');
+        }
     }
 
     /**
