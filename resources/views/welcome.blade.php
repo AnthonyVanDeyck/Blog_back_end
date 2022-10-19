@@ -52,6 +52,10 @@
                   </div>
                 </div>
               </form>
+              @if (\Session::has('message'))
+              {!! \Session::get('message') !!}
+          @endif
+          
         </div>
     </body>
 </html>

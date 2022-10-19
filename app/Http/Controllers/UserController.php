@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 
 class UserController extends Controller
@@ -65,15 +67,25 @@ class UserController extends Controller
     public function login(Request $request)
     {
        //
+       $name = DB::table('users')->select('id','name','email','password');
+       $name = $name -> get();
+
+       
        $request->validate([
-        'name'=> 'required',
-        'password'=> 'required',
-       ]);
-       $connexion = $request->only('name', 'password');
+           'name'=> 'required',
+           'password'=> 'required',
+        ]);
+        $connexion = $request->only('name', 'password');
         if (Auth::attempt($connexion)) {
-            return redirect()->intended('acuille')
-                        ->withSuccess('Signed in');
+            // $name = $request->session()->all();
+            $name = Auth::user();
+            // return redirect()->route('accueil', compact('name'));
+            // ->withSuccess('/acceuil');
+            return view ('acceuil',  compact('name'));
         }
+        return redirect()->back()->with([
+            'message' => 'utilisateur ou mot de passe erroner'
+        ]);
     }
 
     /**

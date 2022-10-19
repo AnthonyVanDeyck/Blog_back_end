@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +24,13 @@ route::get('inscription', function()
     return view('inscription');
 });
 
-route::get('acuille', function()
-{
-    return view ('acuille');
-});
+// route::get('acceuil', function()
+// {
+//     return view ('acceuil');
+// })->name('accueil');
 
+route::get('acceuil', [UserController::class, 'login'])->name('accueil')->middleware('auth');
 route::post('inscription.post',[UserController::class, 'store']);
 route::post('login.post', [UserController::class, 'login']);
-// route::post('aceuille', [UserController::class, '']);
+route::post('article.post', [ArticleController::class, 'store']);
+route::get('article', [ArticleController::class, 'show']);

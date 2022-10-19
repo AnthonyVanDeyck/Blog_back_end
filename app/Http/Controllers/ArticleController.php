@@ -37,6 +37,15 @@ class ArticleController extends Controller
     public function store(StorearticleRequest $request)
     {
         //
+        $user = Auth::user();
+
+        $article = new Article([
+        "user_id" => $request->get($user),
+        "titre" => $request->get('titre'),
+        "article" => $request->get('article'),
+        "media" => $request->get('media'),
+        ]);
+        $article-> save();
     }
 
     /**
