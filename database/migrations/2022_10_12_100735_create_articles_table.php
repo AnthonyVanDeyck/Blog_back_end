@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('titre');
             $table->text('article');
             $table->string('media')->nullable();
-            $table->integer('user_id');
+            $table->text('user_name');
             $table->timestamps();
         });
     }

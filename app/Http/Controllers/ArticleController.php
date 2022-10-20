@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\article;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorearticleRequest;
 use App\Http\Requests\UpdatearticleRequest;
-use App\Models\article;
 
 class ArticleController extends Controller
 {
@@ -37,15 +41,27 @@ class ArticleController extends Controller
     public function store(StorearticleRequest $request)
     {
         //
-        $user = Auth::user();
+    }
 
-        $article = new Article([
-        "user_id" => $request->get($user),
-        "titre" => $request->get('titre'),
-        "article" => $request->get('article'),
-        "media" => $request->get('media'),
-        ]);
-        $article-> save();
+    public function article(Request $request)
+    {
+        //  $user = $user -> get('id');
+        // $user = DB::table('users')->select('id');
+        // $user = $user -> get();
+         $user = Auth::user()->name;
+
+             $article = new article;
+             $article->titre = request('titre');
+             $article->article = request('article');
+             $article->media = request('media');
+             $article->user_name = $user;
+     
+             $article-> save();
+    }
+
+    public function view (Request $request)
+    {
+        //
     }
 
     /**
