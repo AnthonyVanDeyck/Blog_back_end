@@ -24,13 +24,13 @@ route::get('inscription', function()
     return view('inscription');
 });
 
-// route::get('acceuil', function()
+// route::get('article', function()
 // {
-//     return view ('acceuil');
-// })->name('accueil');
+//     return view ('article');
+// })->name('article');
 
 route::get('acceuil', [UserController::class, 'login'])->name('accueil')->middleware('auth');
 route::post('inscription.post',[UserController::class, 'store']);
 route::post('login.post', [UserController::class, 'login']);
 route::post('article.post', [ArticleController::class, 'article']);
-route::get('article', [ArticleController::class, 'show']);
+route::get('article', [ArticleController::class, 'look'])->name('article');

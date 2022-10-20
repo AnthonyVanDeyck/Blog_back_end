@@ -57,11 +57,19 @@ class ArticleController extends Controller
              $article->user_name = $user;
      
              $article-> save();
+         return view ('article');
+        // return redirect()->route('article');
     }
 
-    public function view (Request $request)
+    public function look (Request $request)
     {
         //
+        $user=Auth::user();
+
+        $article = DB::table('articles')->select('id','titre','article','media','user_name','created_at');
+        $article = $article -> get();
+
+        return view ('article', compact('article'));
     }
 
     /**
