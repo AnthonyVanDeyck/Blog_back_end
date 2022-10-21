@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\article;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +20,9 @@ class CommentaireFactory extends Factory
     {
         return [
             //
+            "commentaire" => fake()->text(),
+            "articles_id" => fake()->randomElement(article::all('id')->pluck('id')),
+            "users_id" => fake()->randomElement(User::all('id')->pluck('id')),
         ];
     }
 }
