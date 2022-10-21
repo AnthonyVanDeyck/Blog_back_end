@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('titre');
             $table->text('article');
             $table->text('media')->nullable();
-            $table->text('user_name');
+            $table->foreignId('users_id')->constrained();;
             $table->timestamps();
         });
     }

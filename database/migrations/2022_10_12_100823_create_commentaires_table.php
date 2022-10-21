@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
-            $table->integer('article_id');
-            $table-> integer('user_id');
+            $table->foreignId('articles_id')->constrained();;
+            $table-> foreignId('users_id')->constrained();;
             $table->text('commentaire');
             $table->timestamps();
         });
