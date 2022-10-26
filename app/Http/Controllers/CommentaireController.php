@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\commentaire;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorecommentaireRequest;
 use App\Http\Requests\UpdatecommentaireRequest;
-use App\Models\commentaire;
 
 class CommentaireController extends Controller
 {
@@ -82,5 +84,33 @@ class CommentaireController extends Controller
     public function destroy(commentaire $commentaire)
     {
         //
+    }
+
+    public function reviuw()
+    {
+        $user=Auth::user();
+
+        // $commentaire = DB::table('commentaires')->select('id','articles_id','users_id','commentaire','created_at');
+        // $commentaire = $commentaire -> get();
+
+        // return (compact('commentaire'));
+
+        return commentaire::all();
+    }
+
+    public function reviuw2()
+    {
+        $user=Auth::user();
+
+        $query = $_GET['users_id'];
+        return commentaire::where('users_id', $query)->get();
+    }
+
+    public function reviuw3()
+    {
+        $user=Auth::user();
+
+        $query = $_GET['articles_id'];
+        return commentaire::where('articles_id', $query)->get();
     }
 }

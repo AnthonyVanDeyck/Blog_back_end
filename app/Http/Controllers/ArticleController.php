@@ -66,7 +66,7 @@ class ArticleController extends Controller
         //
         $user=Auth::user();
 
-        $article = DB::table('articles')->select('id','titre','article','media','user_name','created_at');
+        $article = DB::table('articles')->select('id','titre','article','media','users_id','created_at');
         $article = $article -> get();
 
         return view ('article', compact('article'));
@@ -115,5 +115,26 @@ class ArticleController extends Controller
     public function destroy(article $article)
     {
         //
+    }
+
+
+
+    //////// POUR API
+    public function reviuw()
+    {
+        $user=Auth::user();
+
+        $article = DB::table('articles')->select('id','titre','article','media','users_id','created_at');
+        $article = $article -> get();
+
+        return (compact('article'));
+    }
+    
+    public function reviuw2()
+    {
+        $user=Auth::user();
+
+        $query = $_GET['users_id'];
+        return article::where('users_id', $query)->get();
     }
 }

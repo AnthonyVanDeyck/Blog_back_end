@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,13 @@ route::post('inscription.post',[UserController::class, 'store']);
 route::post('login.post', [UserController::class, 'login']);
 route::post('article.post', [ArticleController::class, 'article']);
 route::get('article', [ArticleController::class, 'look'])->name('article');
+
+
+/////////////POUR API
+route::get('/test/article', [ArticleController::class, 'reviuw']);
+route::get('/test/user', [UserController::class, 'reviuw']);
+route::get('/test/commentaire', [CommentaireController::class, 'reviuw']);
+route::get('/test/article2', [ArticleController::class, 'reviuw2']);
+route::get('/test/user2', [UserController::class, 'reviuw2']);
+route::get('/test/commentaire2', [CommentaireController::class, 'reviuw2']);
+route::get('/test/commentaire3', [CommentaireController::class, 'reviuw3']);
