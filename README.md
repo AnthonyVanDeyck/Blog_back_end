@@ -16,3 +16,8 @@ Il s'agit d'un projet effectuez en laravel 9, le ut du projet etais de crée une
 - affichez les articles d'un utilisateur 
 - affichez les commentaire d'un article
 - affichez les commentaire d'un utilisateur
+
+<details><summary>voici ma DB.</summary>
+
+![](/db.dio)
+</details>
