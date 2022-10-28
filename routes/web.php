@@ -38,10 +38,9 @@ route::get('article', [ArticleController::class, 'look'])->name('article');
 
 
 /////////////POUR API
-route::get('/test/article', [ArticleController::class, 'reviuw']);
-route::get('/test/user', [UserController::class, 'reviuw']);
-route::get('/test/commentaire', [CommentaireController::class, 'reviuw']);
-route::get('/test/article2', [ArticleController::class, 'reviuw2']);
-route::get('/test/user2', [UserController::class, 'reviuw2']);
-route::get('/test/commentaire2', [CommentaireController::class, 'reviuw2']);
-route::get('/test/commentaire3', [CommentaireController::class, 'reviuw3']);
+route::get('/api_get/all_article', [ArticleController::class, 'get_all_article']); // tout les articles
+route::get('/api_get/article_by_user', [ArticleController::class, 'get_article_by_user']);// article par user
+route::get('/api_get/all_user', [UserController::class, 'get_all_user']); // tout les utilisateurs
+route::get('/api_get/all_commentaire', [CommentaireController::class, 'get_all_commentaire']); // tout les commentaires
+route::get('/api_get/commentaire_by_user', [CommentaireController::class, 'get_commentaire_by_user']);//commentaire par user
+route::get('/api_get/commentaire_by_article', [CommentaireController::class, 'get_commentaire_by_article']);//commentaire par aticle

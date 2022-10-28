@@ -120,7 +120,7 @@ class ArticleController extends Controller
 
 
     //////// POUR API
-    public function reviuw()
+    public function get_all_article()
     {
         $user=Auth::user();
 
@@ -130,7 +130,7 @@ class ArticleController extends Controller
         return (compact('article'));
     }
     
-    public function reviuw2()
+    public function get_article_by_user()
     {
         $user=Auth::user();
 

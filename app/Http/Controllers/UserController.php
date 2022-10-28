@@ -122,15 +122,7 @@ class UserController extends Controller
         //
     }
 
-    public function reviuw()
-    {
-        $name = DB::table('users')->select('id','name','email','password');
-        $name = $name -> get();
-
-        return (compact('name'));
-    }
-
-    public function reviuw2()
+    public function get_all_user()
     {
         $name = DB::table('users')->select('id','name','email','password');
         $name = $name -> get();

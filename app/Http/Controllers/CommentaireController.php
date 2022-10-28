@@ -86,7 +86,7 @@ class CommentaireController extends Controller
         //
     }
 
-    public function reviuw()
+    public function get_all_commentaire()
     {
         $user=Auth::user();
 
@@ -98,7 +98,7 @@ class CommentaireController extends Controller
         return commentaire::all();
     }
 
-    public function reviuw2()
+    public function get_commentaire_by_user()
     {
         $user=Auth::user();
 
@@ -106,7 +106,7 @@ class CommentaireController extends Controller
         return commentaire::where('users_id', $query)->get();
     }
 
-    public function reviuw3()
+    public function get_commentaire_by_article()
     {
         $user=Auth::user();
 
