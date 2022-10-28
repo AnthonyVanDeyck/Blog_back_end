@@ -9,7 +9,7 @@
 
 ## A propos de mon projet
 
-Il s'agit d'un projet effectuez en laravel 9, le ut du projet etais de crée une api de blog, pour ce faire j'ai utilsé les factorys et la methode «fake()» pour avoir une base de travaille sur la quel travaillé. Par la suite j'ai crée des fonctions qui me permette d'affiche et trié plusieur chose tel que :
+Il s'agit d'un projet effectuez en laravel 9, le ut du projet etais de crée une api de blog, pour ce faire j'ai utilsé les factorys et la methode <u>fake()</u> pour avoir une base de travaille sur la quel travaillé. Par la suite j'ai crée des fonctions qui me permette d'affiche et trié plusieur chose tel que :
 - tout mes utilisateurs
 - tout mes articles
 - tout mes commentaires
