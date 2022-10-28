@@ -19,5 +19,5 @@ Il s'agit d'un projet effectuez en laravel 9, le ut du projet etais de crée une
 
 <details><summary>voici ma DB.</summary>
 
-![](/db.dio)
+![](/db.png)
 </details>
